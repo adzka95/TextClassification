@@ -20,7 +20,9 @@ namespace DataSorter
             foreach (var file in allFiles)
             {
                 FileInfo info = new FileInfo(file);
+                bool writeToFile = true;
                 String strLine, fileDestinationPath ="";
+                var fileContent = new System.Text.StringBuilder();
                 using (StreamReader streamReader = new StreamReader(info.FullName))
                 {
                     while (!streamReader.EndOfStream)
@@ -28,6 +30,7 @@ namespace DataSorter
                         strLine = streamReader.ReadLine();
                         if (strLine.Contains("Fld Applictn"))
                         {
+                            writeToFile = false;
                             strLine = strLine.Replace("Fld Applictn: ", "");
                             strLine = strLine.Replace("/", "-");
                             if (strLine.IndexOf(" ") > 0)
@@ -65,17 +68,24 @@ namespace DataSorter
                                 }
                                 fileDestinationPath += "\\" + category;
                             }
-                            string finalDestination = destinationPath + fileDestinationPath;
-                            Console.WriteLine(finalDestination);
-                            bool exists = System.IO.Directory.Exists(finalDestination);
-                            if (!exists)
-                            {
-                                System.IO.Directory.CreateDirectory(finalDestination);
-                            }
-                            File.Copy(file, finalDestination + "\\" +info.Name);
+                        }
+                        if (strLine.Contains("Program Ref")) {
+                            writeToFile = true;
+                        }
+                        if (writeToFile) {
+                            fileContent.AppendLine(strLine);
                         }
                     }
                 }
+                string finalDestination = destinationPath + fileDestinationPath;
+                //Console.WriteLine(finalDestination);
+                bool exists = System.IO.Directory.Exists(finalDestination);
+                if (!exists)
+                {
+                    System.IO.Directory.CreateDirectory(finalDestination);
+                }
+                System.IO.StreamWriter fileWriter = new System.IO.StreamWriter(finalDestination + "\\" + info.Name);
+                fileWriter.WriteLine(fileContent.ToString()); 
             }
             Console.WriteLine("Work is done");
             Console.Read();
