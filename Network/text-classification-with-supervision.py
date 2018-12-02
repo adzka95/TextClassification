@@ -14,6 +14,11 @@ np.random.seed(1237)
 # Source file directory
 path_train = "F:\\20_newsgroups"
 
+# 20 news groups
+num_labels = 20
+vocab_size = 15000
+batch_size = 100
+
 files_train = skds.load_files(path_train, load_content=False)
 
 label_index = files_train.target
@@ -32,10 +37,7 @@ for f in labelled_files:
 # We have training data available as dictionary filename, category, data
 data = pd.DataFrame.from_records(data_list, columns=data_tags)
 
-# 20 news groups
-num_labels = 20
-vocab_size = 15000
-batch_size = 100
+
 
 # lets take 80% data as training and remaining 20% for test.
 train_size = int(len(data) * .8)
