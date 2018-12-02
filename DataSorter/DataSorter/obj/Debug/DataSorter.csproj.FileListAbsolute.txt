@@ -1,0 +1,7 @@
+C:\Users\Ada\Desktop\IWI\DataSorter\DataSorter\bin\Debug\DataSorter.exe.config
+C:\Users\Ada\Desktop\IWI\DataSorter\DataSorter\bin\Debug\DataSorter.exe
+C:\Users\Ada\Desktop\IWI\DataSorter\DataSorter\bin\Debug\DataSorter.pdb
+C:\Users\Ada\Desktop\IWI\DataSorter\DataSorter\obj\Debug\DataSorter.csprojAssemblyReference.cache
+C:\Users\Ada\Desktop\IWI\DataSorter\DataSorter\obj\Debug\DataSorter.csproj.CoreCompileInputs.cache
+C:\Users\Ada\Desktop\IWI\DataSorter\DataSorter\obj\Debug\DataSorter.exe
+C:\Users\Ada\Desktop\IWI\DataSorter\DataSorter\obj\Debug\DataSorter.pdb
