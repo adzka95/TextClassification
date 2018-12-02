@@ -29,7 +29,7 @@ namespace DataSorter
                         if (strLine.Contains("Fld Applictn"))
                         {
                             strLine = strLine.Replace("Fld Applictn: ", "");
-                            strLine = strLine.Replace("\\", "-");
+                            strLine = strLine.Replace("/", "-");
                             if (strLine.IndexOf(" ") > 0)
                             {
                                 strLine = strLine.Remove(0, strLine.IndexOf(" ")).Trim();
