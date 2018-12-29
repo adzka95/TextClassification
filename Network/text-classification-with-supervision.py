@@ -1,6 +1,8 @@
+import os
 import pandas as pd
 import numpy as np
 import pickle
+from keras.callbacks import TensorBoard
 from keras.preprocessing.text import Tokenizer
 from keras.models import Sequential
 from keras.layers import Activation, Dense, Dropout
@@ -12,10 +14,11 @@ from pathlib import Path
 np.random.seed(1237)
 
 # Source file directory
-path_train = "F:\\20_newsgroups"
+fileDir = os.path.dirname(os.path.abspath(__file__))
+parentDir = os.path.dirname(fileDir)
+path_train = parentDir + "/Posortowane/train"
 
-# 20 news groups
-num_labels = 20
+num_labels = 130
 vocab_size = 15000
 batch_size = 100
 
@@ -25,8 +28,12 @@ label_index = files_train.target
 label_names = files_train.target_names
 labelled_files = files_train.filenames
 
-data_tags = ["filename", "category", "news"]
+data_tags = ["filename", "category", "data"]
 data_list = []
+
+callbacks = [
+    TensorBoard(log_dir=fileDir + "/logs")
+]
 
 # Read and add data from file to a list
 i = 0
@@ -37,16 +44,14 @@ for f in labelled_files:
 # We have training data available as dictionary filename, category, data
 data = pd.DataFrame.from_records(data_list, columns=data_tags)
 
-
-
-# lets take 80% data as training and remaining 20% for test.
+# 80% -> training, 20%test
 train_size = int(len(data) * .8)
 
-train_posts = data['news'][:train_size]
+train_posts = data['data'][:train_size]
 train_tags = data['category'][:train_size]
 train_files_names = data['filename'][:train_size]
 
-test_posts = data['news'][train_size:]
+test_posts = data['data'][train_size:]
 test_tags = data['category'][train_size:]
 test_files_names = data['filename'][train_size:]
 
@@ -71,17 +76,22 @@ model.add(Activation('relu'))
 model.add(Dropout(0.3))
 model.add(Dense(num_labels))
 model.add(Activation('softmax'))
+# TODO
+# sogmoid
+# aoutoencoder, seperational autoencoderrs
 model.summary()
-
+# binary
 model.compile(loss='categorical_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
 
 history = model.fit(x_train, y_train,
                     batch_size=batch_size,
-                    epochs=30,
+                    epochs=10,
                     verbose=1,
-                    validation_split=0.1)
+                    validation_split=0.1,
+                    callbacks=callbacks
+                    )
 
 # creates a HDF5 file 'my_model.h5'
 model.model.save('my_model.h5')
