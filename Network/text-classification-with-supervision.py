@@ -6,21 +6,19 @@ import numpy as np
 import pandas as pd
 import sklearn.datasets as skds
 from keras.callbacks import TensorBoard
-from keras.engine.saving import load_model, model_from_json
-from keras.layers import Dense, Dropout, Embedding, Conv1D, GlobalMaxPool1D, BatchNormalization
+from keras.engine.saving import model_from_json
+from keras.layers import Dense, Embedding, Conv1D, GlobalMaxPool1D, BatchNormalization, Dropout
 from keras.models import Sequential
 from keras.preprocessing.text import Tokenizer
 from keras_preprocessing.sequence import pad_sequences
 from sklearn.preprocessing import MultiLabelBinarizer
 
 # Source file directory
-from sklearn.utils import class_weight
 
 fileDir = os.path.dirname(os.path.abspath(__file__))
 parentDir = os.path.dirname(fileDir)
-path_train = parentDir + "/Dane1"
-path_labels = parentDir + "/Data"
-path_to_labels = parentDir + "/Data/Labelki"
+path_train = parentDir + "/Data"
+path_to_labels = parentDir + "/Tag/Labelki"
 
 d = {}
 with open("finalCategories.txt", "r") as file:
@@ -52,9 +50,11 @@ def get_weights():
         class_weights[idx] = (int(max_val) / int(value))
     return class_weights
 
+
 def get_features(text_series):
     sequences = tokenizer.texts_to_sequences(text_series)
     return pad_sequences(sequences, maxlen=150)
+
 
 # Params
 num_labels = 97
@@ -109,7 +109,7 @@ filter_length = 300
 
 model = Sequential()
 model.add(Embedding(3000, 20, input_length=150))
-model.add(Dropout(0.1))
+# model.add(Dropout(0.1))
 model.add(Conv1D(filter_length, 3, padding='valid', activation='relu', strides=1))
 model.add(BatchNormalization())
 model.add(GlobalMaxPool1D())
