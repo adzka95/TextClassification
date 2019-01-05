@@ -1,97 +1,97 @@
-Agricultural 148
-Agriculture 1495
-Air_Pollution 163
-Analytic_Tools 107
-Anthropology 1245
-Astronomy 1195
-Atmospheric_Science-ICAS 181
-Atmospheric_Sciences 2280
-Biological_Oceanography 902
-Biomaterials-Short_&_Long_Terms 114
-Chemical_Reaction_Systems 123
-Chemistry 4928
-Climate_Related_Activities 1265
-Computer_Science 422
-Computer_Science_&_Engineering 4604
-Condensed_Matter_Physics 555
-Curriculum_Development 566
-Data_Banks 111
-Data_Banks_&_Software_Design 250
-Disaster_&_Natural_Hazard 956
-Earthquake 1254
-Ecology 956
-Economics 933
-Ecosystem_Dynamics 1033
-Endangered_Species 121
-Energy_Research_&_Resources 908
-Engineering 302
-Engineering_&_Computer_Science 797
-Engineering_NEC 1948
-Engineering-Chemical 1929
-Engineering-Civil 1744
-Engineering-Electrical 3114
-Engineering-Engineering_Technology 158
-Engineering-Mechanical 2116
-Engineering-Metallurgy_&_Material 1045
-Environmental_Biology 1761
-Environmental_NEC 972
-Environmental_Sciences 236
-Ethical_Considerations 265
-Facilities_-_Repair-Renovation 326
-Geography 462
-Geological_Sciences 5516
-Global_Carbon_Cycle 100
-Health 3325
-High_Technology_Materials 128
-History 330
-Human_Subjects 3257
-Industrial_Technology 8449
-Industry_University_-_Co-op 102
-Information_Systems 2647
-Land_Use_&_Planning 116
-Law 283
-Life_Science_Biological 8589
-Life_Sciences 171
-Life_Sciences_NEC 193
-Linguistics 276
-Manpower_&_Training 2452
-Materials_NEC 406
-Materials_Research 8603
-Materials_Theory 314
-Mathematics 6972
-Metals,_Ceramics_&_Electronic_Materials 537
-Multi-Disciplinary 249
-Oceanography 6234
-Operations_Research 356
-Other_Sciences 488
-Other_Sciences_NEC 6279
-Physical_&_Chemical_Oceanography 1120
-Physical_Sciences 172
-Physical_Sciences_NEC 194
-Physics 3303
-Polar_Programs-Related 2461
-Political_Sciences 376
-Pollution_Control 330
-Population 1480
-Problem-Oriented 186
-Psychology_Biological_Aspects 407
-Psychology_Social_Aspects 243
-Regional_&_Environmental 1134
-Research_Involving_Recombinant_DNA 144
-Role-Terrestrial_Ecosystem 222
-Science_Policy 518
-Science_Technology_Assess 264
-Social_Sciences_NEC 256
-Sociology 519
-Software_Development 628
-Solid_State_Chem_and_Polymers 333
-Space 1571
-Structural_Technology 678
-Structure_&_Function 581
-System_Theory 410
-Technology_Transfer 483
-Telecommunications 4341
-Trace_Contaminants 621
-Urban_Technology 141
-Water_Pollution 541
-Water_Resources 341
+Agricultural
+Agriculture
+Air_Pollution
+Analytic_Tools
+Anthropology
+Astronomy
+Atmospheric_Science-ICAS
+Atmospheric_Sciences
+Biological_Oceanography
+Biomaterials-Short_&_Long_Terms
+Chemical_Reaction_Systems
+Chemistry
+Climate_Related_Activities
+Computer_Science
+Computer_Science_&_Engineering
+Condensed_Matter_Physics
+Curriculum_Development
+Data_Banks
+Data_Banks_&_Software_Design
+Disaster_&_Natural_Hazard
+Earthquake
+Ecology
+Economics
+Ecosystem_Dynamics
+Endangered_Species
+Energy_Research_&_Resources
+Engineering
+Engineering_&_Computer_Science
+Engineering_NEC
+Engineering-Chemical
+Engineering-Civil
+Engineering-Electrical
+Engineering-Engineering_Technology
+Engineering-Mechanical
+Engineering-Metallurgy_&_Material
+Environmental_Biology
+Environmental_NEC
+Environmental_Sciences
+Ethical_Considerations
+Facilities_-_Repair-Renovation
+Geography
+Geological_Sciences
+Global_Carbon_Cycle
+Health
+High_Technology_Materials
+History
+Human_Subjects
+Industrial_Technology
+Industry_University_-_Co-op
+Information_Systems
+Land_Use_&_Planning
+Law
+Life_Science_Biological
+Life_Sciences
+Life_Sciences_NEC
+Linguistics
+Manpower_&_Training
+Materials_NEC
+Materials_Research
+Materials_Theory
+Mathematics
+Metals,_Ceramics_&_Electronic_Materials
+Multi-Disciplinary
+Oceanography
+Operations_Research
+Other_Sciences
+Other_Sciences_NEC
+Physical_&_Chemical_Oceanography
+Physical_Sciences
+Physical_Sciences_NEC
+Physics
+Polar_Programs-Related
+Political_Sciences
+Pollution_Control
+Population
+Problem-Oriented
+Psychology_Biological_Aspects
+Psychology_Social_Aspects
+Regional_&_Environmental
+Research_Involving_Recombinant_DNA
+Role-Terrestrial_Ecosystem
+Science_Policy
+Science_Technology_Assess
+Social_Sciences_NEC
+Sociology
+Software_Development
+Solid_State_Chem_and_Polymers
+Space
+Structural_Technology
+Structure_&_Function
+System_Theory
+Technology_Transfer
+Telecommunications
+Trace_Contaminants
+Urban_Technology
+Water_Pollution
+Water_Resources
