@@ -5,7 +5,6 @@ import numpy as np
 import pandas as pd
 import sklearn.datasets as skds
 from keras.models import load_model
-from keras.preprocessing.text import Tokenizer
 from keras_preprocessing.sequence import pad_sequences
 from sklearn.preprocessing import MultiLabelBinarizer
 from custom_measures import f1
@@ -13,8 +12,7 @@ from utils import find_categories, find_categories_with_array
 
 fileDir = os.path.dirname(os.path.abspath(__file__))
 parentDir = "C:\\Users\\mateu\\Desktop\\Podzielone\\Podzielone"
-# path_train = parentDir + "/train/Data"
-# path_to_labels = parentDir + "/train/Tag/Labelki"
+
 path_test_data = parentDir + "/test/Data"
 path_to_test_labels = parentDir + "/test/Tag/Labelki"
 
@@ -29,18 +27,13 @@ def get_features(text_series):
     return pad_sequences(sequences, maxlen=max_len)
 
 
-# files_train = skds.load_files(path_train, load_content=False)
 files_test = skds.load_files(path_test_data, load_content=False)
-# labelled_files = files_train.filenames
 labelled_test_files = files_test.filenames
 
 data_tags = ["filename", "Text", 'Tags']
 data_list = []
 data_test_list = []
 print("Preparing dataset...")
-
-# for f in labelled_files:
-#     data_list.append(Path(f).read_text())
 
 for f in labelled_test_files:
     data_test_list.append((f, Path(f).read_text(), find_categories(os.path.basename(f), path_to_test_labels)))
@@ -72,7 +65,7 @@ score = model.evaluate(x_test, y_test,
                        )
 print(score)
 
-for i in range(10):
+for i in range(100):
     prediction = model.predict(np.array([x_test[i]]))
     prediction[prediction >= 0.5] = 1
     prediction[prediction < 0.5] = 0

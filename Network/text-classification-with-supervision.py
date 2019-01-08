@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 import sklearn.datasets as skds
-from keras.callbacks import TensorBoard, ModelCheckpoint
+from keras.callbacks import TensorBoard, ModelCheckpoint, EarlyStopping
 from keras.layers import Dense, Embedding, Conv1D, GlobalMaxPool1D, BatchNormalization
 from keras.models import Sequential
 from keras.preprocessing.text import Tokenizer
@@ -22,10 +22,8 @@ path_to_labels = parentDir + "/train/Tag/Labelki"
 # Params
 num_labels = 97
 vocab_size = 3000
-batch_size = 150
-max_len = 300
-mode = 'train'  # ['train', 'test']
-read_from_csv = False
+batch_size = 200
+max_len = 350
 
 
 def get_features(text_series):
@@ -38,9 +36,7 @@ labelled_files = files_train.filenames
 
 data_tags = ["filename", "Text", 'Tags']
 data_list = []
-data_test_list = []
 print("Preparing dataset...")
-i = 0
 for f in labelled_files:
     data_list.append((f, Path(f).read_text(), find_categories(os.path.basename(f), path_to_labels)))
 
@@ -74,7 +70,7 @@ model.add(BatchNormalization())
 model.add(GlobalMaxPool1D())
 model.add(Dense(num_labels, activation='sigmoid'))
 model.compile(optimizer='adamax', loss='binary_crossentropy', metrics=[f1, 'categorical_accuracy', 'accuracy'])
-tensor_board = TensorBoard(log_dir=fileDir + "/logs/conv/nope")
+
 
 # Old model
 # model = Sequential()
@@ -83,16 +79,27 @@ tensor_board = TensorBoard(log_dir=fileDir + "/logs/conv/nope")
 # model.add(GlobalMaxPool1D())
 # model.add(Dense(num_labels, activation='sigmoid'))
 
-checkpoint = ModelCheckpoint('checkpointweight.hdf5', monitor='val_loss', save_best_only=True)
+tensor_board = TensorBoard(log_dir=fileDir + "/logs/conv/1000epoch")
+
+checkpoint = ModelCheckpoint('checkpointweight.hdf5',
+                             monitor='val_loss',
+                             save_best_only=True)
+
+early_stopping = EarlyStopping(monitor='val_loss',
+                               min_delta=0,
+                               patience=5,
+                               verbose=0,
+                               mode='auto')
 callbacks = [
     tensor_board,
+    early_stopping,
     checkpoint
 ]
 
 history = model.fit(x_train, y_train,
-                    epochs=25,
+                    epochs=1000,
                     batch_size=batch_size,
-                    validation_split=0.1,
+                    validation_split=0.2,
                     callbacks=callbacks
                     )
 
