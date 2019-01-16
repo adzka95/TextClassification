@@ -19,8 +19,8 @@ path_to_test_labels = parentDir + "/test/Tag/Labelki"
 # Params
 num_labels = 97
 vocab_size = 3000
-batch_size = 150
-max_len = 300
+batch_size = 200
+max_len = 450
 
 def get_features(text_series):
     sequences = tokenizer.texts_to_sequences(text_series)

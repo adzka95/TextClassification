@@ -23,7 +23,7 @@ path_to_labels = parentDir + "/train/Tag/Labelki"
 num_labels = 97
 vocab_size = 3000
 batch_size = 200
-max_len = 350
+max_len = 450
 
 
 def get_features(text_series):
@@ -79,7 +79,7 @@ model.compile(optimizer='adamax', loss='binary_crossentropy', metrics=[f1, 'cate
 # model.add(GlobalMaxPool1D())
 # model.add(Dense(num_labels, activation='sigmoid'))
 
-tensor_board = TensorBoard(log_dir=fileDir + "/logs/conv/1000epoch")
+tensor_board = TensorBoard(log_dir=fileDir + "/logs/conv/450-with-early-stopping")
 
 checkpoint = ModelCheckpoint('checkpointweight.hdf5',
                              monitor='val_loss',
@@ -97,7 +97,7 @@ callbacks = [
 ]
 
 history = model.fit(x_train, y_train,
-                    epochs=1000,
+                    epochs=50,
                     batch_size=batch_size,
                     validation_split=0.2,
                     callbacks=callbacks
